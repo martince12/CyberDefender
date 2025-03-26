@@ -2,147 +2,182 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-
-*{
-    margin: 0;
-    padding: 0;
+/* Base font size for rem units */
+html {
+    font-size: 16px;
 }
 
-#load-page, #load-page-main-section,.section1,.section2,
-#progress-bar,#intro-page,#intro-page-main-section{
+/* Mobile-first media queries */
+@media (min-width: 480px) {
+    html { font-size: 18px; }
+}
+
+@media (min-width: 768px) {
+    html { font-size: 20px; }
+}
+
+@media (min-width: 1200px) {
+    html { font-size: 22px; }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Added for better sizing */
+}
+
+/* Common flex styles */
+#load-page, #load-page-main-section, .section1, .section2,
+#progress-bar, #intro-page, #intro-page-main-section, #main-page,
+#main-page-main-section {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 /* LOAD PAGE */
-#load-page{
+#load-page {
     width: 100vw;
     height: 100vh;
-
-    border: 2px solid transparent;
-    background: linear-gradient(45deg,rgba(33, 148, 198, 0.919) 1%, rgb(113, 241, 113) 60%,rgb(33, 149, 198) );
+    background: linear-gradient(45deg, rgba(33, 148, 198, 0.919) 1%, rgb(113, 241, 113) 60%, rgb(33, 149, 198));
 }
 
-#load-page-main-section{
-    width: 70rem;
-    height: 15rem;
-
-    border: 2px solid transparent;
+#load-page-main-section {
+    width: min(90%, 70rem); /* Responsive width */
+    height: min(50vh, 15rem); /* Responsive height */
     flex-direction: column;
 }
-.section1,.section2{
+
+.section1, .section2 {
     width: 100%;
     height: 50%;
-
-    border: 1px solid transparent;
 }
-#progress-bar-container{
-    width:  30rem;
-    height: 2rem;
 
+#progress-bar-container {
+    width: min(90%, 30rem); /* Responsive width */
+    height: 2rem;
     border: 3px solid rgb(85, 85, 255);
     border-radius: 1rem;
-
+    position: relative; /* For percentage positioning */
 }
-#progress-bar{
-    width: 0%;
-    height: 2rem;
 
+#progress-bar {
+    width: 0%;
+    height: 100%;
     background-color: rgb(85, 85, 255);
     border-radius: 0.8rem;
 }
-#percent{
-    position: fixed;
+
+#percent {
+    position: absolute;
     left: 49.5%;
     font-family: Knewave;
     color: whitesmoke;
 }
 
-.title{
-    border: 1px solid transparent;
-
+.title {
     font-family: Knewave;
-    font-size: 6rem;
+    font-size: clamp(2rem, 10vw, 6rem);
     color: rgb(48, 126, 243);
-    text-shadow: 0rem 1rem 1.5rem rgb(51, 51, 254);
+    text-shadow: 0 1rem 1.5rem rgb(51, 51, 254);
 }
 
 /* INTRO PAGE */
-#intro-page{
+#intro-page {
     width: 100vw;
     height: 100vh;
-
-    background: linear-gradient(45deg,rgba(33, 148, 198, 0.919) 1%, rgb(113, 241, 113) 60%,rgb(33, 149, 198) );
-
-    border: 2px solid transparent;
+    background: linear-gradient(45deg, rgba(33, 148, 198, 0.919) 1%, rgb(113, 241, 113) 60%, rgb(33, 149, 198));
     display: none;
 }
 
-#intro-page-main-section{
-    width: 50rem;
-    height: 30rem;
-
+#intro-page-main-section {
+    width: min(90%, 50rem); 
+    height: auto; 
+    min-height: min(60vh, 30rem); 
     flex-direction: column;
-
     border: 2px solid rgb(48, 126, 243);
     border-radius: 2rem;
-
     background-color: aquamarine;
-    padding: 1rem;
+    padding: 2rem;
+    margin: 1rem;
 }
 
-.title-intro{
+.title-intro {
     position: absolute;
     top: 5%;
+    font-size: clamp(2.5rem, 8vw, 4rem); 
 }
-#text-container{
+
+#text-container {
     width: 100%;
-    height: 20rem;
-    border: 2px solid transparent;
+    height: auto;
+    margin: 1rem 0;
 }
-#title-text-container{
+
+#title-text-container {
     font-family: Akaya Kanadaka;
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem); 
     color: rgb(48, 126, 243);
+    text-align: center;
 }
-#paragraph-text-container{
+
+#paragraph-text-container {
     margin-top: 1.5rem;
-
     font-family: Share Tech Mono;
-    font-size: 2rem;
+    font-size: clamp(1rem, 3vw, 2rem); 
     color: rgb(48, 126, 243);
-
+    text-align: center;
 }
-#button-container{
-    width: 100%;
-    height: 5rem;
-    border: 2px solid transparent;
 
+#button-container {
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
 }
-#button-next{
-    width: 7rem;
-    height: 2rem;
 
-    margin-right: 1rem;
-
+#button-next {
+    padding: 1rem 2rem;
     background-color: rgba(33, 148, 198, 0.919);
     border: none;
     border-radius: 2rem;
     cursor: pointer;
-    box-shadow: 0rem 0rem 1rem white;
-
+    box-shadow: 0 0 1rem white;
     color: white;
     font-family: Share Tech Mono;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem); 
+}
+
+/* MAIN PAGE */
+#main-page {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(33, 148, 198, 0.919) 1%, rgb(113, 241, 113) 60%, rgb(33, 149, 198));
+    flex-direction: column;
+    display: none; 
+}
+
+#main-page-main-section {
+    width: min(90%, 50rem);
+    height: auto;
+    min-height: min(80vh, 30rem);
+    flex-direction: column;
+    border: 2px solid rgb(48, 126, 243);
+    border-radius: 2rem;
+    background-color: aquamarine;
+    padding: 2rem;
+    margin: 1rem;
 }
 
 
-
-
-
-
-
-
+@media (max-width: 480px) {
+    #intro-page-main-section, #main-page-main-section {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    
+    #button-next {
+        padding: 0.8rem 1.5rem;
+    }
+}
