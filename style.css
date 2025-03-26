@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#load-page, #load-page-main-section,.section1,.section2,
+#progress-bar,#intro-page,#intro-page-main-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* LOAD PAGE */
+#load-page{
+    width: 100vw;
+    height: 100vh;
+
+    border: 2px solid transparent;
+    background: linear-gradient(45deg,rgba(33, 148, 198, 0.919) 1%, rgb(113, 241, 113) 60%,rgb(33, 149, 198) );
+}
+
+#load-page-main-section{
+    width: 70rem;
+    height: 15rem;
+
+    border: 2px solid transparent;
+    flex-direction: column;
+}
+.section1,.section2{
+    width: 100%;
+    height: 50%;
+
+    border: 1px solid transparent;
+}
+#progress-bar-container{
+    width:  30rem;
+    height: 2rem;
+
+    border: 3px solid rgb(85, 85, 255);
+    border-radius: 1rem;
+
+}
+#progress-bar{
+    width: 0%;
+    height: 2rem;
+
+    background-color: rgb(85, 85, 255);
+    border-radius: 0.8rem;
+}
+#percent{
+    position: fixed;
+    left: 49.5%;
+    font-family: Knewave;
+    color: whitesmoke;
+}
+
+.title{
+    border: 1px solid transparent;
+
+    font-family: Knewave;
+    font-size: 6rem;
+    color: rgb(48, 126, 243);
+    text-shadow: 0rem 1rem 1.5rem rgb(51, 51, 254);
+}
+
+/* INTRO PAGE */
+#intro-page{
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(45deg,rgba(33, 148, 198, 0.919) 1%, rgb(113, 241, 113) 60%,rgb(33, 149, 198) );
+
+    border: 2px solid transparent;
+    display: none;
+}
+
+#intro-page-main-section{
+    width: 50rem;
+    height: 30rem;
+
+    flex-direction: column;
+
+    border: 2px solid rgb(48, 126, 243);
+    border-radius: 2rem;
+
+    background-color: aquamarine;
+    padding: 1rem;
+}
+
+.title-intro{
+    position: absolute;
+    top: 5%;
+}
+#text-container{
+    width: 100%;
+    height: 20rem;
+    border: 2px solid transparent;
+}
+#title-text-container{
+    font-family: Akaya Kanadaka;
+    font-size: 4rem;
+    color: rgb(48, 126, 243);
+}
+#paragraph-text-container{
+    margin-top: 1.5rem;
+
+    font-family: Share Tech Mono;
+    font-size: 2rem;
+    color: rgb(48, 126, 243);
+
+}
+#button-container{
+    width: 100%;
+    height: 5rem;
+    border: 2px solid transparent;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#button-next{
+    width: 7rem;
+    height: 2rem;
+
+    margin-right: 1rem;
+
+    background-color: rgba(33, 148, 198, 0.919);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    box-shadow: 0rem 0rem 1rem white;
+
+    color: white;
+    font-family: Share Tech Mono;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
