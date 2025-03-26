@@ -2,12 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-/* Base font size for rem units */
 html {
     font-size: 16px;
 }
 
-/* Mobile-first media queries */
 @media (min-width: 480px) {
     html { font-size: 18px; }
 }
@@ -23,13 +21,13 @@ html {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Added for better sizing */
+    box-sizing: border-box; 
 }
 
 /* Common flex styles */
 #load-page, #load-page-main-section, .section1, .section2,
 #progress-bar, #intro-page, #intro-page-main-section, #main-page,
-#main-page-main-section {
+#main-page-main-section, #powerShield, #scenario, #question, #buttons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,8 +41,8 @@ html {
 }
 
 #load-page-main-section {
-    width: min(90%, 70rem); /* Responsive width */
-    height: min(50vh, 15rem); /* Responsive height */
+    width: min(80%, 70rem); 
+    height: min(40vh, 15rem); 
     flex-direction: column;
 }
 
@@ -78,8 +76,8 @@ html {
 .title {
     font-family: Knewave;
     font-size: clamp(2rem, 10vw, 6rem);
-    color: rgb(48, 126, 243);
-    text-shadow: 0 1rem 1.5rem rgb(51, 51, 254);
+    color: rgb(35, 57, 91);
+    text-shadow: 0 1rem 1.5rem rgba(78, 78, 223, 0.881);
 }
 
 /* INTRO PAGE */
@@ -100,6 +98,8 @@ html {
     background-color: aquamarine;
     padding: 2rem;
     margin: 1rem;
+    box-shadow: 0 0 2rem white;
+
 }
 
 .title-intro {
@@ -159,15 +159,17 @@ html {
 }
 
 #main-page-main-section {
-    width: min(90%, 50rem);
+    width: min(70%, 50rem);
     height: auto;
-    min-height: min(80vh, 30rem);
+    min-height: min(70vh, 30rem);
     flex-direction: column;
     border: 2px solid rgb(48, 126, 243);
     border-radius: 2rem;
     background-color: aquamarine;
     padding: 2rem;
     margin: 1rem;
+
+    box-shadow: 0 0 2rem white;
 }
 
 
@@ -180,4 +182,94 @@ html {
     #button-next {
         padding: 0.8rem 1.5rem;
     }
+}
+
+#powerShield{
+    width: 100%;
+    height: 10%;
+
+    border: 1px solid transparent;
+    justify-content: space-around;
+}
+#scenario{
+    width: 100%;
+    height: 70%;
+
+    border: 1px solid transparent;
+}
+#buttons{
+    width: 100%;
+    height: 20%;
+
+    border: 1px solid transparent;
+    gap: 7rem;
+}
+#ps-title{
+    font-family: Akaya Kanadaka;
+    font-size: 2rem;
+    color: rgb(35, 57, 91);
+    text-shadow: 0 0 1rem rgba(78, 78, 223, 0.881);
+}
+#PS-bar-container{
+    width: 60%;
+    height: 1.5rem;
+
+    border: 1px solid rgb(35, 57, 91);
+    border-radius: 2rem;
+}
+#PS-bar{
+    width: 2rem;
+    background-color: rgb(35, 57, 91);
+    height: 100%;
+    border-radius: 2rem;
+}
+#question{
+    width: 50%;
+    height: 100%;
+
+    border: 1px solid transparent;
+}
+#image-scenario{
+    width: 50%;
+    height: 100%;
+
+    border: 1px solid black;
+}
+#question-title{
+    font-family: Share Tech Mono;
+    font-weight: 800;
+    font-size: 2.3rem;
+    text-align: center;
+    color: rgb(35, 57, 91);
+    cursor: default;
+}
+#safe-word{
+    color: green;
+}
+#safe-word:hover{
+    text-decoration: underline;
+}
+#notsafe-word{
+    color: red;
+}
+#notsafe-word:hover{
+    text-decoration: underline;
+}
+#safe-btn, #notsafe-btn{
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-family: Share Tech Mono;
+    font-weight: 600;
+    color: rgb(35, 57, 91);
+    border: 1px solid rgb(35, 57, 91);
+    border-radius: 0.5rem;
+    background-color: rgba(245, 245, 245, 0.874);
+}
+#safe-btn:hover{
+    color: green;
+    border: 1px solid green;
+}
+#notsafe-btn:hover{
+    color: red;
+    border: 1px solid red;
 }
