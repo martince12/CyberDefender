@@ -54,7 +54,7 @@ html {
 #progress-bar-container {
     width: min(90%, 30rem); /* Responsive width */
     height: 2rem;
-    border: 3px solid rgb(85, 85, 255);
+    border: 3px solid rgb(35, 57, 91);
     border-radius: 1rem;
     position: relative; /* For percentage positioning */
 }
@@ -93,7 +93,7 @@ html {
     height: auto; 
     min-height: min(60vh, 30rem); 
     flex-direction: column;
-    border: 2px solid rgb(48, 126, 243);
+    border: 2px solid rgb(35, 57, 91);
     border-radius: 2rem;
     background-color: aquamarine;
     padding: 2rem;
@@ -117,7 +117,7 @@ html {
 #title-text-container {
     font-family: Akaya Kanadaka;
     font-size: clamp(2rem, 5vw, 4rem); 
-    color: rgb(48, 126, 243);
+    color: rgb(35, 57, 91);
     text-align: center;
 }
 
@@ -125,7 +125,7 @@ html {
     margin-top: 1.5rem;
     font-family: Share Tech Mono;
     font-size: clamp(1rem, 3vw, 2rem); 
-    color: rgb(48, 126, 243);
+    color: rgb(35, 57, 91);
     text-align: center;
 }
 
@@ -163,12 +163,12 @@ html {
     height: auto;
     min-height: min(70vh, 30rem);
     flex-direction: column;
-    border: 2px solid rgb(48, 126, 243);
+    border: 2px solid rgb(35, 57, 91);
     border-radius: 2rem;
     background-color: aquamarine;
     padding: 2rem;
     margin: 1rem;
-
+    flex-wrap:wrap-reverse;
     box-shadow: 0 0 2rem white;
 }
 
@@ -202,11 +202,12 @@ html {
     height: 20%;
 
     border: 1px solid transparent;
-    gap: 7rem;
+    gap: 5rem;
 }
 #ps-title{
     font-family: Akaya Kanadaka;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+
     color: rgb(35, 57, 91);
     text-shadow: 0 0 1rem rgba(78, 78, 223, 0.881);
 }
@@ -234,11 +235,17 @@ html {
     height: 100%;
 
     border: 1px solid black;
+
+    background-image: url("images/FakeImg2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 #question-title{
     font-family: Share Tech Mono;
     font-weight: 800;
-    font-size: 2.3rem;
+    font-size: clamp(1rem, 3.5vw, 4rem);
+
     text-align: center;
     color: rgb(35, 57, 91);
     cursor: default;
@@ -257,13 +264,15 @@ html {
 }
 #safe-btn, #notsafe-btn{
     padding: 0.5rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 4rem);
     font-family: Share Tech Mono;
     font-weight: 600;
     color: rgb(35, 57, 91);
     border: 1px solid rgb(35, 57, 91);
     border-radius: 0.5rem;
     background-color: rgba(245, 245, 245, 0.874);
+    cursor: pointer;
+    white-space: nowrap;
 }
 #safe-btn:hover{
     color: green;
@@ -273,3 +282,44 @@ html {
     color: red;
     border: 1px solid red;
 }
+ 
+/* Message place */
+#message-place{
+    width: 30%;
+    height: 30%;
+
+    border: 2px solid rgb(35, 57, 91);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem white;
+    background-color: white;
+
+    position: absolute;
+    top: 10%;
+    left: 35%;
+
+    display: none;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+#message{
+    width: 90%;
+    height: 100%;    
+
+    border: 1px solid transparent;
+    font-size: clamp(1rem, 2vw, 2rem);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#close-message{
+    padding: 0.4rem;
+    font-size: clamp(0.5rem, 1vw, 2rem);
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
