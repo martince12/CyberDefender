@@ -61,106 +61,99 @@ function checkAnswer(isSafeChoice) {
             targets: '#PS-bar',
             width: `${newWidthPercent}%`,
             duration: 500,
-            easing: 'easeOutQuad',
-            update: function(anim) {
-                powerShieldBar.style.width = `${newWidthPercent}%`;
-            }
+            easing: 'easeOutQuad'
         });
 
         if (scenario.isSafe) {
-            showFeedback("✓ Correct! This photo is safe.", "green");
+            showFeedback("✓ Точно! Оваа слика е безбедна.", "green", false, () => {
+                SafeImage();
+            });
         } else {
-            showFeedback("✓ Correct! This photo is NOT safe.", "green");
+            showFeedback("✓ Точно! Оваа слика не е безбедна.", "green", false, () => {
+                SafeImage();
+            });
         }
-        SafeImage();
     } else {
         if (scenario.isSafe) {
-            showFeedback("✗ Wrong! This photo was actually safe.", "red");
+            showFeedback("✗ Неточно! Оваа слика е безбедна.", "red", false, () => {
+                NotSafeImage();
+            });
         } else {
-            showFeedback("✗ Wrong! This photo was dangerous.", "red");
+            showFeedback("✗ Неточно! Оваа слика е небезбедна.", "red", false, () => {
+                NotSafeImage();
+            });
         }
-        NotSafeImage();
     }
 }
+
 function endGame() {
     powerShieldBar.style.width = `${maxShieldWidth}px`;
+    const percentage = Math.round((score / scenarios.length) * 100);
     
-    setTimeout(() => {
-        const percentage = Math.round((score / scenarios.length) * 100);
-        showFeedback(`Game Over! Final Score: ${score}/${scenarios.length} (${percentage}%)`, 
-                    percentage > 50 ? "green" : "red");
-        
-        messageContent.innerHTML += `<br><button id="restart-btn" style="
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background: ${percentage > 50 ? '#4CAF50' : '#f44336'};
-            color: white;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-family: 'Share Tech Mono';
-        ">Play Again</button>`;
-        
-        document.getElementById('restart-btn').addEventListener('click', resetGame);
-    }, 500);
+    showFeedback(`Крај на игра! Финален резултат: ${score}/${scenarios.length} (${percentage}%)`, 
+                percentage > 50 ? "green" : "red", true);
+    
+    messageContent.innerHTML += `<br><button id="restart-btn" style="
+        padding: 0.5rem 1rem;
+        background: ${percentage > 50 ? '#4CAF50' : '#f44336'};
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-family: 'Tektur';
+        font-size: 0.8rem;
+    ">Играј Повторно</button>`;
+    
+    document.getElementById('restart-btn').addEventListener('click', resetGame);
 }
-
 function resetGame() {
     currentScenario = 0;
     score = 0;
-    shieldProgress = maxShieldWidth * 0.1; 
-    
+    shieldProgress = maxShieldWidth * 0.1;
     powerShieldBar.style.width = `${shieldProgress}px`;
-    messagePlace.style.display = 'none';
-    
+    messagePlace.style.display = 'none'; 
     safeBtn.disabled = false;
     notSafeBtn.disabled = false;
-    
-
     showScenario();
     initialShieldPump();
 }
 
-
-function showFeedback(message, color) {
+function showFeedback(message, color, isEndGame = false, callback = null) {
     messageContent.textContent = message;
     messageContent.style.color = color;
     messagePlace.style.display = 'flex';
     messagePlace.style.borderColor = color;
     
-    
     safeBtn.disabled = true;
     notSafeBtn.disabled = true;
+
+    if(!isEndGame){
+        setTimeout(() => {
+            messagePlace.style.display = 'none';
+            safeBtn.disabled = false;
+            notSafeBtn.disabled = false;
+            if(callback) callback(); 
+        }, 2000);
+    }
 }
-
-
-closeMessageBtn.addEventListener('click', function() {
-    messagePlace.style.display = 'none';
-    safeBtn.disabled = false;
-    notSafeBtn.disabled = false;
-});
 
 
 function SafeImage() {
-    setTimeout(() => {
-        currentScenario++;
-        if(currentScenario < scenarios.length) {
-            showScenario();
-        } else {
-            endGame();
-        }
-    }, 500); // Reduced delay since we wait for message close
+    currentScenario++;
+    if(currentScenario < scenarios.length) {
+        showScenario();
+    } else {
+        endGame();
+    }
 }
 
 function NotSafeImage() {
-    setTimeout(() => {
-        currentScenario++;
-        if(currentScenario < scenarios.length) {
-            showScenario();
-        } else {
-            endGame();
-        }
-    }, 500); // Reduced delay since we wait for message close
+    currentScenario++;
+    if(currentScenario < scenarios.length) {
+        showScenario();
+    } else {
+        endGame();
+    }
 }
 
 safeBtn.addEventListener('click', () => checkAnswer(true));
@@ -200,20 +193,20 @@ animateProgressBar(100);
 
 const introSlides = [
     {
-        title: "Welcome, Cyber Defender!",
-        text: "The internet needs your help against cyber threats!"
+        title: "Добредојде, Сајбер Заштитнику!",
+        text: "На интернетот му е потребна твојата помош против сајбер закани!"
     },
     {
-        title: "Your Mission",
-        text: "Identify fake news, block cyberbullies, and stop scams to earn points."
+        title: "Твојата Мисија",
+        text: "Откривај лажни вести, спречувај сајбер малтретирање и запознај ги измамите за да освојуваш поени."
     },
     {
-        title: "How To Play",
-        text: "1. Click on dangerous content\n2. Report suspicious messages\n3. Earn stars for correct answers"
+        title: "Како да Играш",
+        ttext: "1. Одлучи дали содржината е безбедна или небезбедна\n2. Кликни на соодветното копче (Безбедно/Небезбедно)\n3. Добиваш поени за точни одговори"
     },
     {
-        title: "Ready?",
-        text: "Let's make the internet safer together!"
+        title: "Подготвен?",
+        text: "Да го направиме интернетот позаштитен заедно!"
     }
 ];
 
@@ -227,9 +220,9 @@ function updateSlide(){
     textElement.textContent = introSlides[currentSlide].text;
 
     if(currentSlide === introSlides.length -1){
-        nextButton.textContent = "Start Game"
+        nextButton.textContent = "Започни"
     }else {
-        nextButton.textContent = "Continue"
+        nextButton.textContent = "Продолжи"
     }
 
     nextButton.addEventListener('click', function(){

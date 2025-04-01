@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 html {
@@ -52,11 +52,11 @@ html {
 }
 
 #progress-bar-container {
-    width: min(90%, 30rem); /* Responsive width */
+    width: min(90%, 30rem); 
     height: 2rem;
     border: 3px solid rgb(35, 57, 91);
     border-radius: 1rem;
-    position: relative; /* For percentage positioning */
+    position: relative; 
 }
 
 #progress-bar {
@@ -68,14 +68,14 @@ html {
 
 #percent {
     position: absolute;
-    left: 49.5%;
-    font-family: Knewave;
+    left: 48%;
+    font-family: Tektur;
     color: whitesmoke;
 }
 
 .title {
-    font-family: Knewave;
-    font-size: clamp(2rem, 10vw, 6rem);
+    font-family: Tektur;
+    font-size: clamp(2rem, 5vw, 6rem);
     color: rgb(35, 57, 91);
     text-shadow: 0 1rem 1.5rem rgba(78, 78, 223, 0.881);
 }
@@ -89,9 +89,9 @@ html {
 }
 
 #intro-page-main-section {
-    width: min(90%, 50rem); 
+    width: min(60%, 50rem); 
     height: auto; 
-    min-height: min(60vh, 30rem); 
+    min-height: clamp(2vh, 7vh, 10rem);
     flex-direction: column;
     border: 2px solid rgb(35, 57, 91);
     border-radius: 2rem;
@@ -105,7 +105,7 @@ html {
 .title-intro {
     position: absolute;
     top: 5%;
-    font-size: clamp(2.5rem, 8vw, 4rem); 
+    font-size: clamp(2rem, 3vw, 4rem); 
 }
 
 #text-container {
@@ -115,16 +115,16 @@ html {
 }
 
 #title-text-container {
-    font-family: Akaya Kanadaka;
-    font-size: clamp(2rem, 5vw, 4rem); 
+    font-family: Tektur;
+    font-size: clamp(1.5rem, 3vw, 4rem); 
     color: rgb(35, 57, 91);
     text-align: center;
 }
 
 #paragraph-text-container {
     margin-top: 1.5rem;
-    font-family: Share Tech Mono;
-    font-size: clamp(1rem, 3vw, 2rem); 
+    font-family: Tektur;
+    font-size: clamp(1rem, 2vw, 2rem); 
     color: rgb(35, 57, 91);
     text-align: center;
 }
@@ -145,7 +145,7 @@ html {
     cursor: pointer;
     box-shadow: 0 0 1rem white;
     color: white;
-    font-family: Share Tech Mono;
+    font-family: Tektur;
     font-size: clamp(1rem, 3vw, 1.2rem); 
 }
 
@@ -159,9 +159,9 @@ html {
 }
 
 #main-page-main-section {
-    width: min(70%, 50rem);
+    width: min(55%, 50rem);
     height: auto;
-    min-height: min(70vh, 30rem);
+    min-height: clamp(23rem, 30vh, 25rem);
     flex-direction: column;
     border: 2px solid rgb(35, 57, 91);
     border-radius: 2rem;
@@ -205,8 +205,8 @@ html {
     gap: 5rem;
 }
 #ps-title{
-    font-family: Akaya Kanadaka;
-    font-size: clamp(1.5rem, 2.5vw, 4rem);
+    font-family: Tektur;
+    font-size: clamp(1rem, 2vw, 4rem);
 
     color: rgb(35, 57, 91);
     text-shadow: 0 0 1rem rgba(78, 78, 223, 0.881);
@@ -231,8 +231,8 @@ html {
     border: 1px solid transparent;
 }
 #image-scenario{
-    width: 50%;
-    height: 100%;
+    width: 45%;
+    height: 90%;
 
     border: 1px solid black;
 
@@ -242,9 +242,9 @@ html {
     background-size: contain;
 }
 #question-title{
-    font-family: Share Tech Mono;
+    font-family: Tektur;
     font-weight: 800;
-    font-size: clamp(1rem, 3.5vw, 4rem);
+    font-size: clamp(1rem, 2vw, 3rem);
 
     text-align: center;
     color: rgb(35, 57, 91);
@@ -264,8 +264,8 @@ html {
 }
 #safe-btn, #notsafe-btn{
     padding: 0.5rem;
-    font-size: clamp(1.2rem, 2vw, 4rem);
-    font-family: Share Tech Mono;
+    font-size: clamp(0.6rem, 1.5vw, 3rem);
+    font-family: Tektur;
     font-weight: 600;
     color: rgb(35, 57, 91);
     border: 1px solid rgb(35, 57, 91);
@@ -312,6 +312,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
 }
 
 #close-message{
